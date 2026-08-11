@@ -25,7 +25,7 @@ on:
 
 jobs:
   release:
-    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.3.0
+    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.4.0
     with:
       registry-name: your-registry.sakuracr.jp
     secrets:
@@ -52,9 +52,6 @@ Your image will be pushed as `your-registry.sakuracr.jp/owner/repo:v1.0.0`.
 | `image-name`      |          | `github.repository` | Image name                                                                  |
 | `context`         |          | `.`                 | Build context path                                                          |
 | `dockerfile`      |          | `./Dockerfile`      | Path to Dockerfile                                                          |
-| `cache-from-type` |          | `gha`               | Cache source type                                                           |
-| `cache-to-type`   |          | `gha`               | Cache destination type                                                      |
-| `cache-to-mode`   |          | `max`               | Cache mode (`min` or `max`)                                                 |
 | `runs-on`         |          | `'["ubuntu-latest"]'` | Runner to use, as a JSON array of labels                                  |
 | `build-args`      |          | `''`                | Build arguments (multiline)                                                 |
 
@@ -72,7 +69,7 @@ Your image will be pushed as `your-registry.sakuracr.jp/owner/repo:v1.0.0`.
 ```yaml
 jobs:
   release:
-    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.3.0
+    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.4.0
     with:
       registry-name: your-registry.sakuracr.jp
       image-name: my-custom-app
@@ -86,7 +83,7 @@ jobs:
 ```yaml
 jobs:
   release:
-    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.3.0
+    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.4.0
     with:
       registry-name: your-registry.sakuracr.jp
       build-args: |
@@ -102,7 +99,7 @@ jobs:
 ```yaml
 jobs:
   release:
-    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.3.0
+    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.4.0
     with:
       registry-name: your-registry.sakuracr.jp
       runs-on: '["self-hosted", "linux", "x64"]'

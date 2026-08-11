@@ -22,21 +22,6 @@ on:
         required: false
         type: string
         default: './Dockerfile'
-      cache-from-type:
-        description: 'Cache source type'
-        required: false
-        type: string
-        default: 'gha'
-      cache-to-type:
-        description: 'Cache destination type'
-        required: false
-        type: string
-        default: 'gha'
-      cache-to-mode:
-        description: 'Cache mode (min or max)'
-        required: false
-        type: string
-        default: 'max'
       runs-on:
         description: 'Runner to use'
         required: false
@@ -83,6 +68,4 @@ jobs:
           file: ${{ inputs.dockerfile }}
           push: true
           tags: ${{ inputs.registry-name }}/${{ inputs.image-name || github.repository }}:${{ github.ref_name }}
-          cache-from: type=${{ inputs.cache-from-type }}
-          cache-to: type=${{ inputs.cache-to-type }},mode=${{ inputs.cache-to-mode }}
           build-args: ${{ inputs.build-args }}
