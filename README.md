@@ -25,7 +25,7 @@ on:
 
 jobs:
   release:
-    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.2.1
+    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.3.0
     with:
       registry-name: your-registry.sakuracr.jp
     secrets:
@@ -52,7 +52,6 @@ Your image will be pushed as `your-registry.sakuracr.jp/owner/repo:v1.0.0`.
 | `image-name`      |          | `github.repository` | Image name                                                                  |
 | `context`         |          | `.`                 | Build context path                                                          |
 | `dockerfile`      |          | `./Dockerfile`      | Path to Dockerfile                                                          |
-| `platforms`       |          | `linux/amd64`       | Target platforms<br>(e.g., `linux/amd64,linux/arm64`)                       |
 | `cache-from-type` |          | `gha`               | Cache source type                                                           |
 | `cache-to-type`   |          | `gha`               | Cache destination type                                                      |
 | `cache-to-mode`   |          | `max`               | Cache mode (`min` or `max`)                                                 |
@@ -73,24 +72,10 @@ Your image will be pushed as `your-registry.sakuracr.jp/owner/repo:v1.0.0`.
 ```yaml
 jobs:
   release:
-    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.2.1
+    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.3.0
     with:
       registry-name: your-registry.sakuracr.jp
       image-name: my-custom-app
-    secrets:
-      registry-username: ${{ secrets.SAKURA_CLOUD_REGISTRY_USERNAME }}
-      registry-password: ${{ secrets.SAKURA_CLOUD_REGISTRY_PASSWORD }}
-```
-
-### Multi-Architecture Build
-
-```yaml
-jobs:
-  release:
-    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.2.1
-    with:
-      registry-name: your-registry.sakuracr.jp
-      platforms: linux/amd64,linux/arm64
     secrets:
       registry-username: ${{ secrets.SAKURA_CLOUD_REGISTRY_USERNAME }}
       registry-password: ${{ secrets.SAKURA_CLOUD_REGISTRY_PASSWORD }}
@@ -101,7 +86,7 @@ jobs:
 ```yaml
 jobs:
   release:
-    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.2.1
+    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.3.0
     with:
       registry-name: your-registry.sakuracr.jp
       build-args: |
@@ -117,7 +102,7 @@ jobs:
 ```yaml
 jobs:
   release:
-    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.2.1
+    uses: zinrai/actions-sakuracr/.github/workflows/build-push.yml@v0.3.0
     with:
       registry-name: your-registry.sakuracr.jp
       runs-on: '["self-hosted", "linux", "x64"]'
