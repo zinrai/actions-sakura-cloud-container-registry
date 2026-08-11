@@ -25,7 +25,7 @@ on:
 
 jobs:
   release:
-    uses: zinrai/actions-sakura-cloud-container-registry/.github/workflows/build-push.yml@v1
+    uses: zinrai/actions-sakura-cloud-container-registry/.github/workflows/build-push.yml@v0.2.1
     with:
       registry-name: your-registry.sakuracr.jp
     secrets:
@@ -56,7 +56,7 @@ Your image will be pushed as `your-registry.sakuracr.jp/owner/repo:v1.0.0`.
 | `cache-from-type` |          | `gha`               | Cache source type                                                           |
 | `cache-to-type`   |          | `gha`               | Cache destination type                                                      |
 | `cache-to-mode`   |          | `max`               | Cache mode (`min` or `max`)                                                 |
-| `runs-on`         |          | `ubuntu-latest`     | Runner to use                                                               |
+| `runs-on`         |          | `'["ubuntu-latest"]'` | Runner to use, as a JSON array of labels                                  |
 | `build-args`      |          | `''`                | Build arguments (multiline)                                                 |
 
 ### Secrets
@@ -73,7 +73,7 @@ Your image will be pushed as `your-registry.sakuracr.jp/owner/repo:v1.0.0`.
 ```yaml
 jobs:
   release:
-    uses: zinrai/actions-sakura-cloud-container-registry/.github/workflows/build-push.yml@v1
+    uses: zinrai/actions-sakura-cloud-container-registry/.github/workflows/build-push.yml@v0.2.1
     with:
       registry-name: your-registry.sakuracr.jp
       image-name: my-custom-app
@@ -87,7 +87,7 @@ jobs:
 ```yaml
 jobs:
   release:
-    uses: zinrai/sakura-cloud-registry-acton/.github/workflows/build-push.yml@v1
+    uses: zinrai/actions-sakura-cloud-container-registry/.github/workflows/build-push.yml@v0.2.1
     with:
       registry-name: your-registry.sakuracr.jp
       platforms: linux/amd64,linux/arm64
@@ -101,7 +101,7 @@ jobs:
 ```yaml
 jobs:
   release:
-    uses: zinrai/actions-sakura-cloud-container-registry/.github/workflows/build-push.yml@v1
+    uses: zinrai/actions-sakura-cloud-container-registry/.github/workflows/build-push.yml@v0.2.1
     with:
       registry-name: your-registry.sakuracr.jp
       build-args: |
@@ -117,7 +117,7 @@ jobs:
 ```yaml
 jobs:
   release:
-    uses: zinrai/actions-sakura-cloud-container-registry/.github/workflows/build-push.yml@v1
+    uses: zinrai/actions-sakura-cloud-container-registry/.github/workflows/build-push.yml@v0.2.1
     with:
       registry-name: your-registry.sakuracr.jp
       runs-on: '["self-hosted", "linux", "x64"]'
